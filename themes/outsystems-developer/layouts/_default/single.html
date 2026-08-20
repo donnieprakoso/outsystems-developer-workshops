@@ -1,0 +1,93 @@
+{{ define "main" }}
+<div class="container-fluid py-4">
+    <article class="workshop-single">
+        <div class="row g-4">
+            <!-- Left Sidebar Navigation -->
+            <aside class="col-lg-2 d-none d-lg-block">
+                <nav class="sticky-top" style="top: 80px;">
+                    <h5 class="fw-bold pb-3 border-bottom">Workshops</h5>
+                    <ul class="list-unstyled">
+                        {{ $section := .Site.GetPage "/workshops" }}
+                        {{ range $section.Pages }}
+                        <li class="mb-2">
+                            <a href="{{ .Permalink }}" class="nav-link p-0 {{ if eq .Permalink $.Permalink }}active fw-bold{{ end }}">
+                                {{ .Title }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <div class="content-container">
+                    <h1 class="mb-4">{{ .Title }}</h1>
+
+                    {{ if or .Params.created .Params.updated }}
+                    <div class="text-muted small mb-3">
+                        {{ if .Params.created }}
+                            Created: <time datetime="{{ .Params.created }}">{{ .Params.created | time.Format "January 2, 2006" }}</time>
+                        {{ end }}
+                        {{ if .Params.updated }}
+                            | Updated: <time datetime="{{ .Params.updated }}">{{ .Params.updated | time.Format "January 2, 2006" }}</time>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+
+                    {{ if .Params.authors }}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ if eq (len .Params.authors) 1 }}Author{{ else }}Authors{{ end }}</h5>
+                            {{ range .Params.authors }}
+                                {{ $authorID := . }}
+                                {{ $author := index $.Site.Data.authors $authorID }}
+                                {{ if $author }}
+                                <div class="d-flex gap-3 mb-3">
+                                    {{ if $author.image }}
+                                    <img src="{{ $author.image }}" alt="{{ $author.name }}" class="rounded-circle" width="60" height="60">
+                                    {{ end }}
+                                    <div>
+                                        {{ if $author.link }}
+                                            <a href="{{ $author.link }}" target="_blank" rel="noopener noreferrer" class="fw-bold">{{ $author.name }}</a>
+                                        {{ else }}
+                                            <div class="fw-bold">{{ $author.name }}</div>
+                                        {{ end }}
+                                        {{ if $author.role }}<p class="text-muted small mb-1">{{ $author.role }}</p>{{ end }}
+                                        {{ if $author.company }}<p class="text-muted small mb-0">{{ $author.company }}</p>{{ end }}
+                                    </div>
+                                </div>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                    {{ end }}
+
+                    <div class="workshop-content lh-lg">
+                        {{ .Content }}
+                    </div>
+
+                    <nav class="mt-5">
+                        {{ if .PrevInSection }}
+                        <a href="{{ .PrevInSection.Permalink }}" class="btn btn-outline-secondary">← {{ .PrevInSection.Title }}</a>
+                        {{ end }}
+                        {{ if .NextInSection }}
+                        <a href="{{ .NextInSection.Permalink }}" class="btn btn-outline-secondary ms-2">{{ .NextInSection.Title }} →</a>
+                        {{ end }}
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Table of Contents -->
+            <aside class="col-lg-2 d-none d-lg-block">
+                <nav class="sticky-top" style="top: 80px;">
+                    <h5 class="fw-bold pb-3 border-bottom">On this page</h5>
+                    <div class="toc-list small">
+                        {{ .TableOfContents }}
+                    </div>
+                </nav>
+            </aside>
+        </div>
+    </article>
+</div>
+{{ end }}

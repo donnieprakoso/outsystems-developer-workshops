@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="container-fluid py-4">
+    <div class="workshop-list">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-9">
+                <h1 class="mb-4">{{ .Title }}</h1>
+                {{ if .Content }}
+                <div class="lead text-muted mb-4">
+                    {{ .Content }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-9">
+                <div class="row g-4">
+                    {{ range .Pages }}
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="{{ .Permalink }}" class="text-decoration-none">{{ .Title }}</a></h5>
+                                {{ if .Description }}
+                                <p class="card-text text-muted small">{{ .Description }}</p>
+                                {{ end }}
+                                <a href="{{ .Permalink }}" class="btn btn-sm btn-primary">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,12 @@
+name = "OutSystems Developer"
+license = "MIT"
+licenselink = "https://github.com/license"
+description = "A professional theme for OutSystems Developer Workshops with clean branding and semantic HTML"
+homepage = "https://github.com/outsystems/workshops"
+tags = ["responsive", "documentation", "workshop", "outsystems"]
+features = ["accessibility", "darkmode", "semantic"]
+min_version = "0.87.0"
+
+[author]
+name = "Donnie Prakoso"
+homepage = "https://donnie.id"

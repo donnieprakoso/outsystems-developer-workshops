@@ -1,0 +1,278 @@
+// DM Sans Font from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+// OutSystems Color Palette
+$os-red: #FF4500;
+$os-dark-gray: #424242;
+$os-light-gray: #f5f5f5;
+$os-success: #4CAF50;
+$os-danger: #f44336;
+$os-warning: #FF9800;
+$os-info: #2196F3;
+
+// Dark Mode Colors
+$os-dark-bg: #0a0e27;
+$os-dark-card: #1a1f3a;
+$os-dark-text: #e0e0e0;
+$os-dark-text-secondary: #b0b0b0;
+
+// Apply DM Sans to all elements
+html, body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+// Override Docsy variables via Bootstrap variables
+:root {
+  --bs-primary: #{$os-red};
+  --bs-secondary: #{$os-dark-gray};
+  --bs-success: #{$os-success};
+  --bs-danger: #{$os-danger};
+  --bs-warning: #{$os-warning};
+  --bs-info: #{$os-info};
+  --bs-light: #{$os-light-gray};
+  --bs-link-color: #{$os-red};
+  --bs-link-hover-color: #{darken($os-red, 10%)};
+}
+
+// Typography with DM Sans
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+}
+
+p {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+}
+
+// Sidebar fonts - DM Sans
+.td-sidebar-nav,
+.td-sidebar-nav a,
+.td-sidebar-nav li,
+.td-sidebar-nav span {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.td-sidebar-nav .nav-link {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.td-sidebar-nav .nav-link:hover {
+  color: #FF4500;
+}
+
+.td-sidebar-nav .active {
+  color: #FF4500;
+  font-weight: 600;
+}
+
+// Right sidebar (page navigation)
+.td-toc,
+.td-toc a,
+.td-toc li,
+.td-toc span {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.td-toc .nav-link {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.td-toc .nav-link:hover {
+  color: #FF4500;
+}
+
+// Brand accent color on headings
+.page-title {
+  border-left: 4px solid #{$os-red};
+  padding-left: 1rem;
+}
+
+// Active nav items - OutSystems red
+.nav-link.active,
+.nav-link:hover {
+  color: #{$os-red} !important;
+  border-bottom: 2px solid #{$os-red};
+}
+
+// Breadcrumb styling
+.breadcrumb {
+  background-color: transparent;
+
+  .breadcrumb-item.active {
+    color: #{$os-red};
+    font-weight: 600;
+  }
+}
+
+// Section headings with accent
+.docs-section > h2:first-child {
+  border-bottom: 2px solid #{$os-red};
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+// Logo sizing
+.td-navbar .navbar-brand {
+  max-width: 200px;
+  width: auto;
+}
+
+.td-navbar .navbar-brand svg {
+  height: 37.5px;
+  width: 150px;
+  max-width: 100%;
+}
+
+.td-navbar .navbar-brand img {
+  height: 37.5px;
+  width: auto;
+}
+
+// Footer styling
+footer {
+  background-color: #{$os-dark-gray};
+  color: white;
+}
+
+// Search box styling
+.td-search-input {
+  border: 2px solid #{$os-red};
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 69, 0, 0.25);
+  }
+}
+
+// Logo switching for light/dark mode
+svg g.logo-light {
+  display: block !important;
+}
+
+svg g.logo-dark {
+  display: none !important;
+}
+
+// Dark mode overrides using Docsy's data-bs-theme attribute
+html[data-bs-theme="dark"] {
+  --bs-body-bg: #{$os-dark-bg};
+  --bs-body-color: #{$os-dark-text};
+  --bs-border-color: #333;
+
+  svg g.logo-light {
+    display: none !important;
+  }
+
+  svg g.logo-dark {
+    display: block !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+  }
+
+  .card,
+  .content-wrapper {
+    background-color: #{$os-dark-card};
+    border-color: #333;
+    color: #{$os-dark-text};
+  }
+
+  .navbar,
+  .td-navbar {
+    background-color: #{$os-dark-card} !important;
+    border-bottom: 1px solid #333;
+  }
+
+  .td-sidebar-nav {
+    background-color: #{$os-dark-bg};
+  }
+
+  .td-sidebar-nav,
+  .td-sidebar-nav a,
+  .td-sidebar-nav li,
+  .td-sidebar-nav span {
+    color: #{$os-dark-text};
+  }
+
+  .td-toc,
+  .td-toc a,
+  .td-toc li,
+  .td-toc span {
+    color: #{$os-dark-text};
+  }
+
+  .td-toc,
+  .td-toc a,
+  .td-toc li,
+  .td-toc span {
+    color: #{$os-dark-text};
+  }
+
+  code {
+    background-color: #1e1e1e;
+    color: #ce9178;
+  }
+
+  pre {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+  }
+
+  table {
+    border-color: #333;
+
+    thead {
+      background-color: #{$os-dark-card};
+      border-color: #333;
+    }
+
+    tbody tr {
+      border-color: #333;
+    }
+  }
+
+  input, textarea, select {
+    background-color: #{$os-dark-card};
+    color: #{$os-dark-text};
+    border-color: #333;
+  }
+
+  .btn-primary {
+    background-color: #{$os-red};
+    border-color: #{$os-red};
+    color: white;
+
+    &:hover {
+      background-color: darken($os-red, 10%);
+      border-color: darken($os-red, 10%);
+    }
+  }
+
+  footer {
+    background-color: #{$os-dark-card};
+    color: #{$os-dark-text};
+  }
+}
+
+// Light mode - OutSystems branding
+html[data-bs-theme="light"] {
+  .btn-primary {
+    background-color: #{$os-red};
+    border-color: #{$os-red};
+    color: white;
+
+    &:hover {
+      background-color: darken($os-red, 10%);
+      border-color: darken($os-red, 10%);
+    }
+  }
+
+  a {
+    color: #{$os-red};
+
+    &:hover {
+      color: darken($os-red, 10%);
+    }
+  }
+}

@@ -1,0 +1,27 @@
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "Developer Workshops"
+theme = "outsystems-developer"
+publishDir = "public"
+
+[params]
+  description = "Learn OutSystems through hands-on, practical workshops"
+  author = "Donnie Prakoso"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Workshops"
+  url = "/workshops/"
+  weight = 2
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3

@@ -1,0 +1,20 @@
+donnie:
+  name: "Donnie Prakoso"
+  role: "Lead Solutions Architect APAC"
+  company: "OutSystems"
+  image: "https://donnie.id/images/profile-social-media-500-squashed-bw.png"
+  link: "https://linkedin.com/in/donnieprakoso"
+
+jane:
+  name: "Jane Smith"
+  role: "Senior Developer"
+  company: "OutSystems"
+  image: "https://example.com/jane.jpg"
+  link: "https://linkedin.com/in/janesmith"
+
+john:
+  name: "John Doe"
+  role: "Solutions Architect"
+  company: "OutSystems"
+  image: "https://example.com/john.jpg"
+  link: "https://linkedin.com/in/johndoe"

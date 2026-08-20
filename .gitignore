@@ -1,0 +1,21 @@
+# Local conversation context files
+convo-*.md
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Editor/IDE
+.vscode/
+.idea/
+*.iml
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.log

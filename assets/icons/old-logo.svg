@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60" preserveAspectRatio="xMidYMid meet">
+  <!-- Light mode logo -->
+  <image href="/images/OutSystems-logo-digital-2018-main-color@3x.png"
+         width="200" height="60"
+         class="logo-light"
+         style="display: block;"/>
+
+  <!-- Dark mode logo -->
+  <image href="/images/OutSystems-logo-digital-2018-alternative-color@3x.png"
+         width="200" height="60"
+         class="logo-dark"
+         style="display: none;"/>
+</svg>

@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container-fluid py-4">
+    <div class="row justify-content-center g-4">
+        <!-- Main Content -->
+        <div class="col-lg-8">
+            <div class="content-container">
+                <h1 class="mb-4">{{ .Title }}</h1>
+
+                {{ if .Content }}
+                <div class="lh-lg">
+                    {{ .Content }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+        <!-- Right Sidebar Table of Contents -->
+        <div class="col-lg-4 d-none d-lg-block">
+            <nav class="sticky-top" style="top: 80px;">
+                <h5 class="fw-bold pb-3 border-bottom">On this page</h5>
+                <div class="toc-list small">
+                    {{ .TableOfContents }}
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+{{ end }}
