@@ -1,13 +1,17 @@
 {{ define "main" }}
 <div class="container-fluid py-4">
-    <div class="row justify-content-center g-4">
+    <div class="row g-4">
+        <!-- Left Sidebar (empty) -->
+        <aside class="col-lg-2 d-none d-lg-block">
+        </aside>
+
         <!-- Main Content -->
         <div class="col-lg-8">
             <div class="content-container">
                 <h1 class="mb-4">{{ .Title }}</h1>
 
                 {{ if .Content }}
-                <div class="lh-lg">
+                <div class="workshop-content lh-lg">
                     {{ .Content }}
                 </div>
                 {{ end }}
@@ -15,14 +19,68 @@
         </div>
 
         <!-- Right Sidebar Table of Contents -->
-        <div class="col-lg-4 d-none d-lg-block">
+        <aside class="col-lg-2 d-none d-lg-block">
             <nav class="sticky-top" style="top: 80px;">
                 <h5 class="fw-bold pb-3 border-bottom">On this page</h5>
-                <div class="toc-list small">
+                <div class="toc-list small" id="toc-container">
                     {{ .TableOfContents }}
                 </div>
             </nav>
-        </div>
+        </aside>
     </div>
 </div>
+
+<script>
+    (function() {
+        // Make TOC headings collapsible at all levels
+        const tocContainer = document.getElementById('toc-container');
+        if (!tocContainer) return;
+
+        // Find the nav element inside toc-container
+        const nav = tocContainer.querySelector('nav');
+        if (!nav) return;
+
+        // Recursively add toggle buttons to all list items with nested ul
+        function addTogglesToListItems(parentElement) {
+            // Find all direct li children that have nested ul
+            const listItems = parentElement.querySelectorAll(':scope > ul > li');
+
+            listItems.forEach((item) => {
+                const nestedUl = item.querySelector(':scope > ul');
+                if (!nestedUl) return;
+
+                // Create toggle button
+                const link = item.querySelector(':scope > a');
+                if (!link) return;
+
+                const toggleBtn = document.createElement('button');
+                toggleBtn.className = 'btn btn-sm btn-link p-0 me-2';
+                toggleBtn.style.fontSize = '0.8rem';
+                toggleBtn.textContent = '▼';
+                toggleBtn.style.border = 'none';
+                toggleBtn.style.padding = '0 !important';
+                toggleBtn.style.minWidth = '20px';
+                toggleBtn.setAttribute('aria-expanded', 'true');
+
+                // Insert toggle button before link
+                link.parentNode.insertBefore(toggleBtn, link);
+
+                // Toggle nested items
+                toggleBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                    nestedUl.style.display = isExpanded ? 'none' : 'block';
+                    toggleBtn.textContent = isExpanded ? '▶' : '▼';
+                    toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                });
+
+                // Recursively process nested lists
+                addTogglesToListItems(nestedUl);
+            });
+        }
+
+        // Start processing from the nav element
+        addTogglesToListItems(nav);
+    })();
+</script>
 {{ end }}

@@ -18,13 +18,104 @@ These requirements are mandatory for any JumpStart Workshop, as they help you se
 
 ### Step 1: Create Your Personal OutSystems Environment
 
-Sign up for free at [OutSystems Platform Signup](https://www.outsystems.com/Platform/Signup).
+Sign up for free at [OutSystems Platform Signup](https://www.outsystems.com/Platform/Signup?uc=startfree).
+![](image2.png)
 
-### Step 2: Install the OutSystems IDE
+### Step 2: Complete the Form
 
-Download the IDE and connect it to your environment. Setup guide: [OutSystems IDE Setup Guide](https://drive.google.com/file/d/14PnRa-dXthhkgq3zUN33_nbfgePWyr7q/view?usp=sharing).
+1. Fill out the form with your information
+2. Click on Agree and start free
 
-Having trouble with setup? No worries — we'll have time to help you get configured on the morning of the workshop.
+![](image5.png)
+
+### Step 3: Receive activation email from OutSystems
+
+1. Check your email
+2. Click on the Activate account button in the activation email from OutSystems
+
+![](image7.png)
+
+### Step 4: Login to OutSystems
+
+1. Enter your password (set in Step 2)
+2. Click on Log In
+
+![](image8.png)
+
+### Step 5: Request ODC Personal Edition
+
+In our website with your newly created account, click on Start building
+
+![](image9.png)
+
+### Step 6: Wait for email notification when your Personal Edition is ready
+
+It might take 1 day to receive the notification that your Personal Edition environment is ready.
+
+![](image1.png)
+
+### Step 7: Receive Email Notification  
+
+1. Check again your email for confirmation that your personal edition is ready
+2. Click on Go to Personal Edition
+
+![](image10.png)
+
+### Step 8: Login to OutSystems Portal
+
+1. Enter your registered Email Address
+2. Enter the Password
+3. Click on Log in
+
+![](image11.png)
+
+### Step 9: Getting into your new Personal Edition
+
+Click on the Open OutSystems
+
+![](image9.png)
+
+### Step 10: Login to your Personal Edition environment
+
+1. Enter your registered Email address
+2. Enter the Password
+3. Click on Log in
+
+![](image4.png)
+
+### Step 11: Welcome to ODC Personal Edition Portal
+
+Take note of the URL in your browser (example: https://personal-XXXXX.outsystems.dev/). 
+
+![](image16.png)
+
+### Step 12: Download ODC Studio
+
+1. In your Portal, click on Download ODC Studio
+2. Double-click the executable to install the ODC Studio in your laptop / desktop
+3. Wait for a couple of minutes to complete the installation
+
+![](image6.png)
+
+### Step 13: Start ODC Studio
+
+1. Start ODC Studio application in your desktop
+2. Enter the URL captured in step 11 (without /apps/)
+3. Click on Continue in browser
+
+![](image14.png)
+
+### Step 14: Start ODC Studio
+
+1. Enter your Email and Password
+2. Click on Log In
+
+![](image12.png)
+
+
+You're done! 🥳
+
+![](image15.png)
 
 ## Workshop Requirement 2: Deep Dive Workshops (Best Practices)
 
@@ -87,8 +178,6 @@ Sign in to the [ODC Portal](https://go.outsystems.com). Your tenant URL follows 
 https://<your-tenant>.outsystems.dev
 ```
 
-%% IMAGE PLACEHOLDER %% — ODC Portal home screen highlighting the tenant URL
-
 ### Step 2: Add the OutSystems MCP Configuration
 
 In OpenCode, add the OutSystems MCP server to your `opencode.json` configuration file:
@@ -118,8 +207,6 @@ claude mcp add --transport http outsystems https://<your-tenant>.outsystems.dev/
 
 The OutSystems MCP is protected by standard OAuth — there are no tokens or API keys to manage manually. Make your first OutSystems request in your agent, and it will prompt you to sign in through your browser. Complete the sign-in, and you're connected.
 
-%% IMAGE PLACEHOLDER %% — Browser OAuth sign-in prompt when making the first OutSystems request
-
 ### Step 4: Test It
 
 Send this prompt to your agent:
@@ -129,8 +216,6 @@ List all of my assets in my OutSystems tenancy
 ```
 
 Your agent should respond with a list of assets from your OutSystems tenant.
-
-%% IMAGE PLACEHOLDER %% — Example agent response listing OutSystems assets
 
 ## Workshop Requirement 4: AWS Integration
 

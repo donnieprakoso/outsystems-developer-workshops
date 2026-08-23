@@ -81,6 +81,7 @@ p, li, td, th {
 .navbar {
   background-color: var(--bg-color) !important;
   border-color: var(--border-color) !important;
+  z-index: 1030 !important;
 }
 
 .nav-link {
@@ -99,6 +100,9 @@ p, li, td, th {
   background-color: var(--bg-color) !important;
   border-color: var(--border-color) !important;
   color: var(--text-color) !important;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-title,
@@ -109,6 +113,23 @@ p, li, td, th {
 
 .card-text {
   color: var(--color-gray-5) !important;
+  flex-grow: 1;
+}
+
+/* Dark mode card text - better contrast */
+:root[data-theme="dark"] .card-text {
+  color: var(--color-gray-4) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .card-text {
+    color: var(--color-gray-4) !important;
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-outline-secondary {
@@ -156,24 +177,48 @@ p, li, td, th {
 
 /* Content Styling */
 .content-container h1 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  font-weight: 700;
 }
 
 .content-container h2 {
-  font-size: 1.75rem;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 .content-container h3 {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .content-container h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 
 .content-container p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.content-container ul,
+.content-container ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.content-container li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
 }
 
 .workshop-content h2,
@@ -190,6 +235,7 @@ p, li, td, th {
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-family: "Courier New", monospace;
+  font-size: 0.9em;
 }
 
 .workshop-content pre {
@@ -197,6 +243,183 @@ p, li, td, th {
   border-color: var(--border-color);
   padding: 1rem;
   border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+.workshop-content pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+}
+
+/* Image Styling */
+.workshop-content img {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.workshop-content img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme="dark"] .workshop-content img {
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="dark"] .workshop-content img:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15);
+}
+
+/* Image Modal */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.2s;
+}
+
+.image-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.image-modal-content img {
+  max-width: 100%;
+  max-height: 85vh;
+  height: auto;
+  margin: 0;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 2001;
+  transition: opacity 0.2s;
+}
+
+.image-modal-close:hover {
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Heading Link Copy */
+.workshop-content h1,
+.workshop-content h2,
+.workshop-content h3,
+.workshop-content h4,
+.workshop-content h5,
+.workshop-content h6 {
+  scroll-margin-top: 100px;
+}
+
+.workshop-content .heading-link {
+  cursor: pointer !important;
+  border-bottom: none !important;
+}
+
+.workshop-content .heading-link:hover {
+  border-bottom: none !important;
+}
+
+/* Highlight.js Light Mode (Light Theme) */
+:root[data-theme="light"] .hljs,
+:root:not([data-theme="dark"]) .hljs {
+  background-color: var(--box-bg-light);
+  color: var(--color-text-light);
+}
+
+:root[data-theme="light"] .hljs-attr,
+:root:not([data-theme="dark"]) .hljs-attr {
+  color: #e45649;
+}
+
+:root[data-theme="light"] .hljs-string,
+:root:not([data-theme="dark"]) .hljs-string {
+  color: #50a14f;
+}
+
+:root[data-theme="light"] .hljs-number,
+:root:not([data-theme="dark"]) .hljs-number {
+  color: #986801;
+}
+
+:root[data-theme="light"] .hljs-literal,
+:root:not([data-theme="dark"]) .hljs-literal {
+  color: #0184bc;
+}
+
+:root[data-theme="light"] .hljs-attr,
+:root:not([data-theme="dark"]) .hljs-attr {
+  color: #e45649;
+}
+
+/* Highlight.js Dark Mode */
+:root[data-theme="dark"] .hljs {
+  background-color: var(--box-bg-dark);
+  color: #abb2bf;
+}
+
+:root[data-theme="dark"] .hljs-string {
+  color: #98c379;
+}
+
+:root[data-theme="dark"] .hljs-number,
+:root[data-theme="dark"] .hljs-literal {
+  color: #d19a66;
+}
+
+:root[data-theme="dark"] .hljs-attr {
+  color: #e06c75;
+}
+
+:root[data-theme="dark"] .hljs-keyword {
+  color: #c678dd;
+}
+
+:root[data-theme="dark"] .hljs-function,
+:root[data-theme="dark"] .hljs-title {
+  color: #61afef;
+}
+
+:root[data-theme="dark"] .hljs-comment {
+  color: #5c6370;
 }
 
 .workshop-content blockquote {
@@ -244,6 +467,25 @@ a:hover {
   width: auto;
 }
 
+/* Site Title */
+.site-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: 0.5px;
+}
+
+/* Navbar Brand - No underline on hover */
+.navbar-brand {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.navbar-brand:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
 /* Sidebar Navigation */
 .sticky-top {
   z-index: 999;
@@ -259,6 +501,20 @@ a:hover {
   line-height: 1.8;
 }
 
+.toc-list ul {
+  list-style: none !important;
+  margin-top: 0.25rem;
+  padding-left: 0 !important;
+}
+
+.toc-list > ul {
+  padding-left: 0 !important;
+}
+
+.toc-list ul ul {
+  padding-left: 1.25rem !important;
+}
+
 .toc-list a {
   color: var(--text-color);
   text-decoration: none;
@@ -270,16 +526,126 @@ a:hover {
   border-bottom: none !important;
 }
 
-.toc-list ul {
-  list-style: none;
-  padding-left: 1rem;
-  margin-top: 0.25rem;
+/* TOC Toggle Button */
+.toc-list .btn-link {
+  color: var(--bs-primary) !important;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-right: 0.25rem !important;
+}
+
+.toc-list .btn-link:hover {
+  color: #e63d00 !important;
+}
+
+.toc-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* TOC Collapse All Buttons */
+.toc-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.toc-controls button {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.toc-controls .btn-sm {
+  padding: 0.25rem 0.5rem;
 }
 
 /* Focus Visible */
 *:focus-visible {
   outline: 2px solid var(--bs-primary);
   outline-offset: 2px;
+}
+
+/* Workshop Listing Grid */
+.workshop-list .row:last-of-type .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .workshop-list .row:last-of-type .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .workshop-list .row:last-of-type .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.workshop-list .row:last-of-type .row > div {
+  display: flex;
+}
+
+/* Sidebar Navigation Styling */
+.workshop-list aside nav {
+  padding: 0;
+}
+
+.workshop-list aside h5 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.workshop-list aside .list-unstyled {
+  line-height: 1.8;
+}
+
+.workshop-list aside .list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+.workshop-list aside .nav-link {
+  line-height: 1.6;
+}
+
+/* Column Borders */
+.row.g-4 > .col-lg-2 {
+  border-right: 1px solid var(--border-color);
+  padding-right: 2rem;
+}
+
+.row.g-4 > .col-lg-8 {
+  border-right: 1px solid var(--border-color);
+  padding-right: 2rem;
+}
+
+.row.g-4 > .col-lg-10 {
+  border-right: none;
+}
+
+.workshop-list .list-unstyled .nav-link {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  padding: 0.5rem 0 !important;
+  border-left: 2px solid transparent;
+  padding-left: 0.5rem !important;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.workshop-list .list-unstyled .nav-link:hover {
+  color: var(--bs-primary);
+  border-left-color: var(--bs-primary);
+  border-bottom: none !important;
+}
+
+.workshop-list .list-unstyled .nav-link.active {
+  color: var(--bs-primary);
+  border-left-color: var(--bs-primary);
+  font-weight: 600;
+  border-bottom: none !important;
 }
 
 /* Print */

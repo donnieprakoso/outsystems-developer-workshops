@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="container-fluid py-4">
+    <div class="workshop-list">
+        <div class="row g-4">
+            <!-- Left Sidebar Navigation -->
+            <aside class="col-lg-2 d-none d-lg-block">
+                <nav class="sticky-top" style="top: 80px;">
+                    <h5 class="fw-bold pb-3 border-bottom">Workshops</h5>
+                    <ul class="list-unstyled">
+                        {{ range sort .Pages "Weight" }}
+                        <li class="mb-2">
+                            <a href="{{ .Permalink }}" class="nav-link p-0">
+                                {{ .Title }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="col-lg-10">
+                <div class="content-container mb-5">
+                    <h1 class="mb-4">{{ .Title }}</h1>
+                    {{ if .Content }}
+                    <div class="workshop-content mb-4">
+                        {{ .Content }}
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

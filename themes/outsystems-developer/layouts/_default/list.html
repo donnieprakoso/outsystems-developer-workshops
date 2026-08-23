@@ -1,36 +1,167 @@
 {{ define "main" }}
 <div class="container-fluid py-4">
-    <div class="workshop-list">
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-9">
+    {{ if .Pages }}
+    <!-- Display as card grid if section has pages -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-9">
+            <h1 class="mb-4">{{ .Title }}</h1>
+            {{ if .Content }}
+            <div class="lead text-muted mb-4">
+                {{ .Content }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+
+    <div class="row justify-content-center g-4">
+        <div class="col-lg-9">
+            <div class="row g-4">
+                {{ range .Pages }}
+                <div class="col-md-6 col-lg-4">
+                    <article class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{{ .Permalink }}" class="text-decoration-none">{{ .Title }}</a></h5>
+                            {{ if .Description }}
+                            <p class="card-text text-muted small">{{ .Description }}</p>
+                            {{ end }}
+                            <a href="{{ .Permalink }}" class="btn btn-sm btn-primary">Read More →</a>
+                        </div>
+                    </article>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    {{ else }}
+    <!-- Display as 3-column layout if section has no pages -->
+    <div class="row g-4">
+        <!-- Left Sidebar - All Workshops Navigation -->
+        <aside class="col-lg-2 d-none d-lg-block">
+            <nav class="sticky-top" style="top: 80px;">
+                <h5 class="fw-bold pb-3 border-bottom">All Workshops</h5>
+                <ul class="list-unstyled">
+                    {{ $workshops := .Site.GetPage "/workshops" }}
+                    {{ range sort $workshops.Pages "Weight" }}
+                    <li class="mb-2">
+                        <a href="{{ .Permalink }}" class="nav-link p-0">
+                            {{ .Title }}
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="col-lg-8">
+            <div class="content-container">
                 <h1 class="mb-4">{{ .Title }}</h1>
+
                 {{ if .Content }}
-                <div class="lead text-muted mb-4">
+                <div class="workshop-content lh-lg">
                     {{ .Content }}
                 </div>
                 {{ end }}
             </div>
         </div>
 
-        <div class="row justify-content-center g-4">
-            <div class="col-lg-9">
-                <div class="row g-4">
-                    {{ range .Pages }}
-                    <div class="col-md-6 col-lg-4">
-                        <article class="card h-100 shadow-sm border-0">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ .Permalink }}" class="text-decoration-none">{{ .Title }}</a></h5>
-                                {{ if .Description }}
-                                <p class="card-text text-muted small">{{ .Description }}</p>
-                                {{ end }}
-                                <a href="{{ .Permalink }}" class="btn btn-sm btn-primary">Read More →</a>
-                            </div>
-                        </article>
-                    </div>
-                    {{ end }}
+        <!-- Right Sidebar Table of Contents -->
+        <aside class="col-lg-2 d-none d-lg-block">
+            <nav class="sticky-top" style="top: 80px;">
+                <h5 class="fw-bold pb-3 border-bottom">On this page</h5>
+                <div class="toc-controls">
+                    <button class="btn btn-sm btn-outline-secondary" id="collapse-all">Collapse all</button>
+                    <button class="btn btn-sm btn-outline-secondary" id="uncollapse-all">Expand all</button>
                 </div>
-            </div>
-        </div>
+                <div class="toc-list small" id="toc-container">
+                    {{ .TableOfContents }}
+                </div>
+            </nav>
+        </aside>
     </div>
+
+    <script>
+        (function() {
+            // Make TOC headings collapsible at all levels
+            const tocContainer = document.getElementById('toc-container');
+            if (!tocContainer) return;
+
+            // Find the nav element inside toc-container
+            const nav = tocContainer.querySelector('nav');
+            if (!nav) return;
+
+            const allToggleBtns = [];
+
+            // Recursively add toggle buttons to all list items with nested ul
+            function addTogglesToListItems(parentElement) {
+                // Find all direct li children that have nested ul
+                const listItems = parentElement.querySelectorAll(':scope > ul > li');
+
+                listItems.forEach((item) => {
+                    const nestedUl = item.querySelector(':scope > ul');
+                    if (!nestedUl) return;
+
+                    // Create toggle button
+                    const link = item.querySelector(':scope > a');
+                    if (!link) return;
+
+                    const toggleBtn = document.createElement('button');
+                    toggleBtn.className = 'btn btn-sm btn-link p-0 me-2';
+                    toggleBtn.style.fontSize = '0.8rem';
+                    toggleBtn.textContent = '▼';
+                    toggleBtn.style.border = 'none';
+                    toggleBtn.style.padding = '0 !important';
+                    toggleBtn.style.minWidth = '16px';
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+
+                    // Store reference for collapse/expand all
+                    allToggleBtns.push({btn: toggleBtn, ul: nestedUl});
+
+                    // Insert toggle button before link
+                    link.parentNode.insertBefore(toggleBtn, link);
+
+                    // Toggle nested items
+                    toggleBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                        nestedUl.style.display = isExpanded ? 'none' : 'block';
+                        toggleBtn.textContent = isExpanded ? '▶' : '▼';
+                        toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                    });
+
+                    // Recursively process nested lists
+                    addTogglesToListItems(nestedUl);
+                });
+            }
+
+            // Start processing from the nav element
+            addTogglesToListItems(nav);
+
+            // Add collapse/expand all functionality
+            const collapseAllBtn = document.getElementById('collapse-all');
+            const uncollapseAllBtn = document.getElementById('uncollapse-all');
+
+            if (collapseAllBtn) {
+                collapseAllBtn.addEventListener('click', function() {
+                    allToggleBtns.forEach(({btn, ul}) => {
+                        ul.style.display = 'none';
+                        btn.textContent = '▶';
+                        btn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            if (uncollapseAllBtn) {
+                uncollapseAllBtn.addEventListener('click', function() {
+                    allToggleBtns.forEach(({btn, ul}) => {
+                        ul.style.display = 'block';
+                        btn.textContent = '▼';
+                        btn.setAttribute('aria-expanded', 'true');
+                    });
+                });
+            }
+        })();
+    </script>
+    {{ end }}
 </div>
 {{ end }}
