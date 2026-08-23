@@ -1,6 +1,6 @@
 ---
-title: About OutSystems Workshops
-description: Learn about the OutSystems Workshops platform and its mission
+title: About This Initiative
+description: Learn about the OutSystems Developer Workshops community
 weight: 10
 type: docs
 layout: page
@@ -10,49 +10,64 @@ menu:
     weight: 20
 ---
 
-Welcome to OutSystems Workshops – your comprehensive resource for learning enterprise-grade application development with OutSystems.
+## Who We Are
+
+OutSystems Developer Workshops is a **community-driven initiative** created by OutSystems Solutions Architects and a community of developers (MVPs, Champions, and contributors). We're practitioners sharing what we've learned from building real applications with OutSystems.
+
+**A note:** This is not official OutSystems documentation (yet). It's a grassroots effort to share knowledge, patterns, and best practices with everyone building on the platform.
 
 ## Our Mission
 
-We provide hands-on, practical workshops designed to help developers, architects, and business analysts master OutSystems and build enterprise-ready applications at scale.
+We believe hands-on learning is the fastest way to build real skills. Through practical, production-focused workshops, we help you:
 
-## What We Offer
+- **Build production-grade applications** with OutSystems
+- **Master enterprise-ready patterns** that scale
+- **Explore agentic AI and autonomous systems** with OutSystems
+- **Learn from real-world experience**, not just theory
 
-### Practical Learning
-- **Real-world scenarios** that reflect actual business challenges
-- **Step-by-step guidance** from experienced OutSystems professionals
-- **Working code examples** you can run and adapt
+## What Makes These Workshops Different
 
-### Comprehensive Coverage
-- Getting started with OutSystems Mentor
-- Model Context Protocol (MCP) integration
-- Advanced patterns and best practices
-- Production deployment strategies
+### 🤝 Community-First Approach
+- Created by practitioners, for practitioners
+- Built on real experience from the field
+- Continuously improving based on feedback
 
-### Community-Driven Content
-We believe learning is collaborative. Our workshops are continuously improved based on feedback from practitioners like you.
+### 🛠️ Hands-On Focus
+- Every workshop is practical and actionable
+- Real-world scenarios and code examples
+- You learn by building
+
+### 🚀 Production-Ready
+- Emphasis on patterns that work at scale
+- Enterprise-ready solutions
+- Real deployment strategies
 
 ## Who This Is For
 
-- **Developers** looking to accelerate their OutSystems skills
-- **Architects** designing enterprise solutions
-- **Technical Leads** evaluating OutSystems for their teams
-- **Consultants** supporting OutSystems implementations
+- **Developers** accelerating their OutSystems skills
+- **Architects** designing enterprise solutions  
+- **Technical Leads** evaluating OutSystems
+- **Practitioners** building agentic AI systems
+- **Anyone** who learns best by doing
 
-## How to Use These Workshops
+## How to Get the Most Out of These Workshops
 
 1. **Choose a workshop** that matches your learning goals
-2. **Follow the hands-on instructions** at your own pace
-3. **Experiment with the examples** in your own environment
-4. **Contribute back** with your insights and improvements
+2. **Set aside focused time** — these are hands-on
+3. **Follow along in your own environment** — that's where learning happens
+4. **Experiment and adapt** — make it your own
+5. **Share your learnings** — help the community grow
 
-## Technology Stack
+## What You'll Find
 
-All workshops use:
-- **OutSystems Platform** (latest stable version)
-- **Model Context Protocol (MCP)** for agent integration
-- **Industry-standard tools** and practices
+- Hands-on workshops on core OutSystems concepts
+- Advanced patterns and best practices  
+- Integration with Model Context Protocol (MCP) and AI
+- Production deployment strategies
+- Real-world examples you can adapt
 
 ---
 
-**Ready to get started?** Head over to [Workshops](/workshops/) to explore available content.
+**Want to jump in?** Head over to [Workshops](/workshops/) to explore what's available.
+
+**Have feedback or ideas?** We'd love to hear from you. These workshops are shaped by the community.
