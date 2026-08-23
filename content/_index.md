@@ -14,8 +14,8 @@ menu:
     <h1>OutSystems Developer Workshops</h1>
     <p>Community-driven, hands-on learning for building production-grade applications and agentic AI</p>
     <div class="hero-buttons">
-      <a href="/workshops/" class="btn btn-primary">Get Started</a>
-      <a href="/about/" class="btn btn-outline-light">Learn More</a>
+      <a href="workshops/" class="btn btn-primary">Get Started</a>
+      <a href="about/" class="btn btn-outline-light">Learn More</a>
     </div>
   </div>
 </section>

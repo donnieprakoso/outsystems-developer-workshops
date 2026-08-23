@@ -8,15 +8,7 @@ authors = [{name = "Donnie Prakoso", role = "Lead Solutions Architect APAC", com
 
 ## OutSystems Workshops
 
-Choose a workshop from the list below to get started:
-
-### Start Here
-- **[Getting Started](/workshops/getting-started/)** — Begin your learning journey with an overview of the workshop series
-
-### Core Workshops
-- **[BDD Introduction](/workshops/bdd-introduction/)** — Learn Behavior-Driven Development principles and practices
-- **[OutSystems Basics](/workshops/outsystems-basics/)** — Get started with the OutSystems low-code platform
-- **[Advanced Patterns](/workshops/advanced-patterns/)** — Master enterprise-scale architecture and best practices
+Choose a workshop from the left sidebar to get started.
 
 ---
 
