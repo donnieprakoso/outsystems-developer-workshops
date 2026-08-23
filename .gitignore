@@ -3,6 +3,7 @@ convo-*.md
 
 # OS files
 .DS_Store
+.Ulysses-Group.plist
 *.swp
 *.swo
 *~
