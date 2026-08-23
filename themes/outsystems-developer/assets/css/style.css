@@ -648,6 +648,72 @@ a:hover {
   border-bottom: none !important;
 }
 
+/* Hero Section */
+.hero {
+  background-color: #000000;
+  padding: 5rem 2rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  color: white;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+}
+
+.hero-buttons .btn-primary {
+  background-color: white;
+  color: var(--bs-primary);
+  border-color: white;
+}
+
+.hero-buttons .btn-primary:hover {
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+}
+
+.hero-buttons .btn-outline-light {
+  border-color: white;
+  color: white;
+}
+
+.hero-buttons .btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+:root[data-theme="dark"] .hero {
+  background-color: #000000;
+}
+
 /* Print */
 @media print {
   .navbar,
