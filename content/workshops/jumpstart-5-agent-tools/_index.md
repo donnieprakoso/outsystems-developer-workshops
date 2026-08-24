@@ -6,7 +6,7 @@ type: docs
 layout: single
 created: "2026-08-24"
 updated: "2026-08-24"
-authors: ["donnie"]
+authors: []
 prerequisites: ["jumpstart-4-embed-agent-in-app"]
 duration: "30 minutes"
 difficulty: "intermediate"

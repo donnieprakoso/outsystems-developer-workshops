@@ -127,6 +127,25 @@ p, li, td, th {
   }
 }
 
+/* Dark mode author card fix */
+:root[data-theme="dark"] .card .text-muted {
+  color: var(--color-gray-4) !important;
+}
+
+:root[data-theme="dark"] .card a.fw-bold {
+  color: var(--color-text-dark) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .card .text-muted {
+    color: var(--color-gray-4) !important;
+  }
+
+  :root:not([data-theme="light"]) .card a.fw-bold {
+    color: var(--color-text-dark) !important;
+  }
+}
+
 .card-body {
   display: flex;
   flex-direction: column;
@@ -717,7 +736,158 @@ a:hover {
 /* Print */
 @media print {
   .navbar,
-  .site-footer {
+  .site-footer,
+  .mobile-bottom-nav {
     display: none;
   }
+}
+
+/* =============================================
+   Mobile Bottom Navigation Bar
+   ============================================= */
+
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 56px;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0 1rem;
+}
+
+.mobile-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.mobile-nav-btn:hover,
+.mobile-nav-btn:active {
+  background-color: rgba(255, 69, 0, 0.08);
+}
+
+.mobile-nav-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.mobile-nav-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Add bottom padding to body on mobile so content isn't hidden behind bar */
+@media (max-width: 991.98px) {
+  .workshop-single {
+    padding-bottom: 72px;
+  }
+}
+
+/* Offcanvas Bottom Sheet Styling */
+.offcanvas-bottom {
+  height: auto !important;
+  max-height: 60vh;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+.offcanvas-bottom .offcanvas-header {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+}
+
+.offcanvas-bottom .offcanvas-title {
+  color: var(--text-color);
+}
+
+.offcanvas-bottom .offcanvas-body {
+  padding: 1rem 1.5rem;
+  overflow-y: auto;
+}
+
+/* Dark mode close button */
+:root[data-theme="dark"] .offcanvas-bottom .btn-close {
+  filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .offcanvas-bottom .btn-close {
+    filter: invert(1);
+  }
+}
+
+/* Mobile workshop list styling */
+.mobile-workshop-list .nav-link {
+  font-size: 1rem;
+  padding: 0.75rem 0.5rem !important;
+  border-left: 3px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.mobile-workshop-list .nav-link:hover {
+  background-color: rgba(255, 69, 0, 0.05);
+  border-bottom: none !important;
+}
+
+.mobile-workshop-list .nav-link.active {
+  color: var(--bs-primary) !important;
+  border-left-color: var(--bs-primary);
+  background-color: rgba(255, 69, 0, 0.05);
+  border-bottom: none !important;
+}
+
+/* Mobile TOC styling */
+.mobile-toc-list {
+  font-size: 0.95rem;
+  line-height: 2;
+}
+
+.mobile-toc-list a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  padding: 0.25rem 0;
+  border-bottom: none !important;
+}
+
+.mobile-toc-list a:hover {
+  color: var(--bs-primary);
+  border-bottom: none !important;
+}
+
+.mobile-toc-list ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.mobile-toc-list > nav > ul {
+  padding-left: 0;
+}
+
+/* Backdrop for offcanvas */
+.offcanvas-backdrop {
+  z-index: 1039;
 }

@@ -2,7 +2,7 @@
 <div class="container-fluid py-4">
     <article class="workshop-single">
         <div class="row g-4">
-            <!-- Left Sidebar Navigation -->
+            <!-- Left Sidebar Navigation (desktop) -->
             <aside class="col-lg-2 d-none d-lg-block">
                 <nav class="sticky-top" style="top: 80px;">
                     <h5 class="fw-bold pb-3 border-bottom">Workshops</h5>
@@ -36,6 +36,7 @@
                     {{ end }}
 
                     {{ if .Params.authors }}
+                    {{ if gt (len .Params.authors) 0 }}
                     <div class="card mb-4">
                         <div class="card-body">
                             <h5 class="card-title">{{ if eq (len .Params.authors) 1 }}Author{{ else }}Authors{{ end }}</h5>
@@ -62,6 +63,7 @@
                         </div>
                     </div>
                     {{ end }}
+                    {{ end }}
 
                     <div class="workshop-content lh-lg">
                         {{ .Content }}
@@ -78,7 +80,7 @@
                 </div>
             </div>
 
-            <!-- Right Sidebar Table of Contents -->
+            <!-- Right Sidebar Table of Contents (desktop) -->
             <aside class="col-lg-2 d-none d-lg-block">
                 <nav class="sticky-top" style="top: 80px;">
                     <h5 class="fw-bold pb-3 border-bottom">On this page</h5>
@@ -93,6 +95,51 @@
             </aside>
         </div>
     </article>
+</div>
+
+<!-- Mobile Bottom Navigation Bar -->
+<div class="mobile-bottom-nav d-lg-none">
+    <button class="mobile-nav-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWorkshops" aria-controls="offcanvasWorkshops" aria-label="Open workshops navigation">
+        <span class="mobile-nav-icon">📚</span>
+        <span class="mobile-nav-label">Workshops</span>
+    </button>
+    <button class="mobile-nav-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTOC" aria-controls="offcanvasTOC" aria-label="Open table of contents">
+        <span class="mobile-nav-icon">📋</span>
+        <span class="mobile-nav-label">On this page</span>
+    </button>
+</div>
+
+<!-- Offcanvas: Workshops Navigation (bottom sheet) -->
+<div class="offcanvas offcanvas-bottom d-lg-none" tabindex="-1" id="offcanvasWorkshops" aria-labelledby="offcanvasWorkshopsLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold" id="offcanvasWorkshopsLabel">Workshops</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-unstyled mobile-workshop-list">
+            {{ $section := .Site.GetPage "/workshops" }}
+            {{ range sort $section.Pages "Weight" }}
+            <li class="mb-2">
+                <a href="{{ .Permalink }}" class="nav-link p-2 {{ if eq .Permalink $.Permalink }}active fw-bold{{ end }}">
+                    {{ .Title }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+
+<!-- Offcanvas: Table of Contents (bottom sheet) -->
+<div class="offcanvas offcanvas-bottom d-lg-none" tabindex="-1" id="offcanvasTOC" aria-labelledby="offcanvasTOCLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold" id="offcanvasTOCLabel">On this page</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="toc-list mobile-toc-list" id="mobile-toc-container">
+            {{ .TableOfContents }}
+        </div>
+    </div>
 </div>
 
 <script>
@@ -175,6 +222,21 @@
                 });
             });
         }
+    })();
+
+    // Mobile offcanvas: close on TOC link click
+    (function() {
+        const mobileTOC = document.getElementById('offcanvasTOC');
+        if (!mobileTOC) return;
+
+        mobileTOC.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function() {
+                var offcanvasInstance = bootstrap.Offcanvas.getInstance(mobileTOC);
+                if (offcanvasInstance) {
+                    offcanvasInstance.hide();
+                }
+            });
+        });
     })();
 
     // Add copy link functionality to headings
