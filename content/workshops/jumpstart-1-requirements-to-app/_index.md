@@ -15,7 +15,7 @@ tags: ["jumpstart", "mentor", "genai", "web-app"]
 
 ## Overview
 
-In this workshop, you'll use OutSystems Mentor — a GenAI-powered app generator — to transform a functional requirements document into a fully working enterprise web application. By the end, you'll have a complete Inventory Management & Refund Portal with data model, screens, roles, and sample data — all generated in minutes.
+In this workshop, you'll use <a href="https://www.outsystems.com/low-code-platform/mentor-ai-app-generation" target="_blank">OutSystems Mentor</a> — a <a href="https://success.outsystems.com/documentation/outsystems_developer_cloud/agentic_development/ai_app_generation_in_mentor_web/" target="_blank">GenAI-powered app generator</a> — to transform a functional requirements document into a fully working enterprise web application. By the end, you'll have a complete Inventory Management & Refund Portal with data model, screens, roles, and sample data — all generated in minutes.
 
 ## What You'll Learn
 
@@ -27,7 +27,7 @@ In this workshop, you'll use OutSystems Mentor — a GenAI-powered app generator
 
 ## Prerequisites
 
-- Complete [Setting Up for OutSystems Workshops](/workshops/setting-up/)
+- Complete <a href="/workshops/setting-up/" target="_blank">Setting Up for OutSystems Workshops</a>
 - Have ODC Studio installed and connected to your personal environment
 
 ---
@@ -44,7 +44,7 @@ The operations team created a functional requirements document outlining the sol
 
 ## Step 1: Create a New Web Application with Mentor
 
-1. In ODC Studio, click **Create**
+1. In <a href="https://www.outsystems.com/low-code-platform/developer-cloud" target="_blank">ODC Studio</a>, click **Create**
 2. Select **Generate with Mentor**
 3. Mentor AppGenerator will open in your browser
 
@@ -52,14 +52,14 @@ The operations team created a functional requirements document outlining the sol
 
 ![Mentor AppGenerator opening in browser](image33.png)
 
-> 💡 **Tip**: You can select Web app, Mobile app, Agentic app, Workflow or Library. This allows you to create specific apps based on your requirements with pre-built components and logic.
+> 💡 **Tip**: You can select Web app, Mobile app, Agentic app, <a href="https://success.outsystems.com/documentation/outsystems_developer_cloud/building_apps/about_business_processes/workflows_in_odc/" target="_blank">Workflow</a> or Library. This allows you to create specific apps based on your requirements with pre-built components and logic.
 
 ---
 
 ## Step 2: Upload Your Functional Requirements Document
 
 1. In Mentor in your browser, click the **clip symbol** (attachment icon)
-2. Select the **"Inventory Management & Refund Portal - Document.pdf"** from the resources folder
+2. Select the **"<a href="resources/Inventory%20Management%20&%20Refund%20Portal%20-%20Document.pdf" target="_blank">Inventory Management & Refund Portal - Document.pdf</a>"** from the resources folder
 3. Once the document is uploaded, click the **right arrow symbol** or simply hit **Enter**
 
 ![Mentor interface showing the clip/attachment button](image22.png)
@@ -94,7 +94,7 @@ The document you uploaded contains the following sections for the Inventory Mana
 
 In a few minutes, Mentor will analyze your document to generate a complete blueprint including:
 
-- **Data Model** — entities and their attributes
+- **<a href="https://success.outsystems.com/documentation/outsystems_developer_cloud/building_apps/data_management/data_modeling/" target="_blank">Data Model</a>** — entities and their attributes
 - **Screens** — their content and the entities/roles they use
 - **Roles and Permissions** — access control
 - **Flows** — business logic
@@ -133,9 +133,9 @@ Let's use Mentor's conversational capabilities to refine the app:
 Mentor will generate a complete full-stack application in cloud-native infrastructure:
 
 1. Design and Build Data Model
-2. Generate Sample Data & Bootstrap
+2. Generate <a href="https://success.outsystems.com/documentation/11/building_apps/data_management/bootstrap_an_entity_using_an_excel_file/" target="_blank">Sample Data</a> & Bootstrap
 3. Generate Screens & Styles
-4. Generate Business Logic
+4. Generate <a href="https://success.outsystems.com/documentation/11/onboarding_developers/outsystems_main_concepts/" target="_blank">Business Logic</a>
 
 ![Generation steps progress](image29.png)
 
@@ -166,7 +166,7 @@ Once generation completes:
 
 ![Preview button in Mentor](image28.png)
 
-> ⚠️ **Warning**: If you receive an error when publishing, refer to the [Workaround section](/workshops/setting-up/#workarounds) for backup instructions.
+> ⚠️ **Warning**: If you receive an error when publishing, refer to the <a href="/workshops/setting-up/#workarounds" target="_blank">Workaround section</a> for backup instructions.
 
 ---
 
@@ -177,7 +177,7 @@ Your app should now be running with:
 - A **Dashboard** screen with analytics
 - **Product management** screens
 - **Refund management** screens
-- **Sample data** auto-generated by Mentor
+- **<a href="https://success.outsystems.com/documentation/11/building_apps/data_management/bootstrap_an_entity_using_an_excel_file/" target="_blank">Sample data</a>** auto-generated by Mentor
 
 ![Running application dashboard](image5.png)
 
@@ -185,20 +185,20 @@ Your app should now be running with:
 
 > 💡 **Tip**: Mentor generates sample data to help you test your application. You can also login with sample users according to the defined roles.
 
-> ⚠️ **Warning**: The Dashboard screen can be slightly different from the image. Data can take a moment to appear as you've just published — refresh the page a couple of times if needed. If you don't have sample data, follow the [bootstrap workaround steps](/workshops/setting-up/#workaround-sample-data-bootstrap).
+> ⚠️ **Warning**: The Dashboard screen can be slightly different from the image. Data can take a moment to appear as you've just published — refresh the page a couple of times if needed. If you don't have sample data, follow the <a href="/workshops/setting-up/#workaround-sample-data-bootstrap" target="_blank">bootstrap workaround steps</a>.
 
 ---
 
 ## Summary
 
-Congratulations! 🎉 You've successfully transformed a functional requirements document into a complete enterprise web application using GenAI-powered Mentor. In just a few minutes, you generated:
+Congratulations! 🎉 You've successfully transformed a functional requirements document into a complete enterprise web application using <a href="https://success.outsystems.com/documentation/outsystems_developer_cloud/agentic_development/ai_app_generation_in_mentor_web/" target="_blank">GenAI-powered Mentor</a>. In just a few minutes, you generated:
 
 - A complete data model with entities and relationships
 - Multiple screens with forms, tables, and dashboards
 - User roles and permissions
 - Sample data for testing
-- Business logic and workflows
+- <a href="https://success.outsystems.com/documentation/11/onboarding_developers/outsystems_main_concepts/" target="_blank">Business logic</a> and <a href="https://success.outsystems.com/documentation/outsystems_developer_cloud/building_apps/about_business_processes/workflows_in_odc/" target="_blank">workflows</a>
 
 ## Next Steps
 
-- Continue to [JumpStart 2: Create and Bootstrap Orders](/workshops/jumpstart-2-bootstrap-orders/) to extend your app with ODC Studio
+- Continue to <a href="/workshops/jumpstart-2-bootstrap-orders/" target="_blank">JumpStart 2: Create and Bootstrap Orders</a> to extend your app with ODC Studio

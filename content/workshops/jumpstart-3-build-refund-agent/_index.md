@@ -27,7 +27,7 @@ The operations team wants a quick way to view refund history for specific suppli
 
 ## Prerequisites
 
-- Complete [JumpStart 2: Create and Bootstrap Orders](/workshops/jumpstart-2-bootstrap-orders/)
+- Complete <a href="/workshops/jumpstart-2-bootstrap-orders/" target="_blank">JumpStart 2: Create and Bootstrap Orders</a>
 - All entities must be marked as **Public = Yes**
 
 ---
@@ -44,7 +44,7 @@ The operations team wants a quick way to view refund history for specific suppli
 
 ## Step 2: Customize Your Agent
 
-1. Click **"Upload image"** and select **RefundAgent.png** from the resources folder
+1. Click **"Upload image"** and select **<a href="resources/RefundAgent.png" target="_blank">RefundAgent.png</a>** from the resources folder
 2. Name the agent: **"Refund Agent"**
 3. (Optional) Add a description, e.g.: "An agent that specializes in analyzing refund metrics"
 4. Click **Continue**
@@ -244,4 +244,4 @@ You've built an AI-powered Refund Agent that:
 
 ## Next Steps
 
-- Continue to [JumpStart 4: Embed the Agent in Your App](/workshops/jumpstart-4-embed-agent-in-app/) to integrate this agent into your web application's UI
+- Continue to <a href="/workshops/jumpstart-4-embed-agent-in-app/" target="_blank">JumpStart 4: Embed the Agent in Your App</a> to integrate this agent into your web application's UI

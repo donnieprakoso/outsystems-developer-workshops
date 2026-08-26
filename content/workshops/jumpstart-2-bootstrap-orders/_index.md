@@ -15,7 +15,7 @@ tags: ["jumpstart", "odc-studio", "entities", "scaffolding", "mentor"]
 
 ## Overview
 
-Now that you've created your first web app using Mentor, it's time to extend it using OutSystems' full-stack IDE (ODC Studio). You'll create new database entities from Excel files, establish relationships between tables, and use Mentor in Studio to generate order management screens.
+Now that you've created your first web app using Mentor, it's time to extend it using OutSystems' full-stack IDE (<a href="https://www.outsystems.com/low-code-platform/developer-cloud" target="_blank">ODC Studio</a>). You'll create new database entities from Excel files, establish relationships between tables, and use Mentor in Studio to generate order management screens.
 
 ## What You'll Learn
 
@@ -27,7 +27,7 @@ Now that you've created your first web app using Mentor, it's time to extend it 
 
 ## Prerequisites
 
-- Complete [JumpStart 1: From Requirements to an Enterprise Web App](/workshops/jumpstart-1-requirements-to-app/)
+- Complete <a href="/workshops/jumpstart-1-requirements-to-app/" target="_blank">JumpStart 1: From Requirements to an Enterprise Web App</a>
 
 ---
 
@@ -50,7 +50,7 @@ Now that you've created your first web app using Mentor, it's time to extend it 
 1. Go to the **"Data"** tab
 2. Right-click on **"Database"**
 3. Choose **"Import New Entities from Excel"**
-4. Select the **"Orders.xlsx"** file from the resources folder
+4. Select the **"<a href="resources/Orders.xlsx" target="_blank">Orders.xlsx</a>"** file from the resources folder
 5. Click **Import** when prompted for confirmation
 6. The **"Order"** entity is automatically created
 
@@ -60,7 +60,7 @@ Now that you've created your first web app using Mentor, it's time to extend it 
 
 ![Order entity created successfully](image62.png)
 
-> 💡 **Tip**: This process is called "Bootstrap" — it creates an entity and populates it with data from Excel in one step. It's one of OutSystems' development accelerators for common tasks.
+> 💡 **Tip**: This process is called <a href="https://success.outsystems.com/documentation/11/building_apps/data_management/bootstrap_an_entity_using_an_excel_file/" target="_blank">Bootstrap</a> — it creates an entity and populates it with data from Excel in one step. It's one of OutSystems' development accelerators for common tasks.
 
 ---
 
@@ -235,4 +235,4 @@ You've successfully extended your GenAI-generated app by:
 
 ## Next Steps
 
-- Continue to [JumpStart 3: Build a Refund Agent](/workshops/jumpstart-3-build-refund-agent/) to add AI intelligence to your app
+- Continue to <a href="/workshops/jumpstart-3-build-refund-agent/" target="_blank">JumpStart 3: Build a Refund Agent</a> to add AI intelligence to your app
