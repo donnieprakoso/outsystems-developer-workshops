@@ -475,6 +475,16 @@ a:hover {
   padding-bottom: 0.25rem;
 }
 
+/* Workshop Content Links - Dotted Red Underline */
+.workshop-content a {
+  border-bottom: 2px dotted #dc3545;
+  padding-bottom: 0.15rem;
+}
+
+.workshop-content a:hover {
+  border-bottom: 2px dotted #c82333;
+}
+
 /* Headings and Typography */
 .lead {
   font-size: 1.1rem;
